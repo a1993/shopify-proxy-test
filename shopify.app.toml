@@ -1,0 +1,29 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "9853c81f5948bb94e3b2ebb45fbc7d78"
+name = "test-sq"
+application_url = "https://your-app-url.com"  # 部署后替换
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+include_config_on_deploy = true
+
+[webhooks]
+api_version = "2026-01"
+
+[access_scopes]
+# 添加 App Proxy 所需权限
+scopes = "write_app_proxy"
+
+[auth]
+redirect_urls = [
+  "https://your-app-url.com/auth/callback"  # 部署后替换
+]
+
+# ⭐ App Proxy 配置
+# 访问 /apps/test 时代理到 guya-uniwigs-shop
+[app_proxy]
+url = "/proxy"
+prefix = "apps"
+subpath = "test"
