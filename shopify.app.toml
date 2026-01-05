@@ -2,7 +2,7 @@
 
 client_id = "9853c81f5948bb94e3b2ebb45fbc7d78"
 name = "test-sq"
-application_url = "https://your-app-url.com"  # 部署后替换
+application_url = "https://shopify-proxy-test.onrender.com"
 embedded = true
 
 [build]
@@ -18,7 +18,7 @@ scopes = "write_app_proxy"
 
 [auth]
 redirect_urls = [
-  "https://your-app-url.com/auth/callback"  # 部署后替换
+  "https://shopify-proxy-test.onrender.com/auth/callback"
 ]
 
 # ⭐ App Proxy 配置
