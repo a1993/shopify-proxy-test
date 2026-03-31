@@ -169,7 +169,9 @@ app.get('/health', (req, res) => {
  * Liquid 测试页
  */
 app.get('/test-liquid', (req, res) => {
-  res.setHeader('Content-Type', 'application/liquid');
+  // 通过 Shopify App Proxy 访问时保留 Liquid MIME，直接浏览器访问时用 HTML 便于调试
+  const isShopifyProxyRequest = Boolean(req.query.shop || req.query.path_prefix || req.query.signature);
+  res.setHeader('Content-Type', isShopifyProxyRequest ? 'application/liquid; charset=utf-8' : 'text/html; charset=utf-8');
   res.send(`
     <div style="padding: 40px; max-width: 800px; margin: 0 auto;">
       <h1>🎉 Liquid 渲染测试</h1>
